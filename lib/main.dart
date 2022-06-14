@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:taxi/src/fire_base/users.dart';
 import 'package:taxi/src/model/user.dart';
 import 'package:taxi/src/providers/markers.dart';
+import 'package:taxi/src/providers/pages.dart';
 import 'package:taxi/src/providers/polylines.dart';
 import 'package:taxi/src/resources/home_page.dart';
 import 'package:taxi/src/resources/login_page.dart';
@@ -19,6 +20,7 @@ void main() async {
     providers: [
       ListenableProvider(create: (context) => PolylineProvider()),
       ListenableProvider(create: (context) => MarkersProvider()),
+      ListenableProvider(create: (context) => PagesWrapper())
     ],
     child: MaterialApp(
       home: //LoginPage()

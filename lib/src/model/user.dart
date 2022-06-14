@@ -11,7 +11,11 @@ class User {
   String? ride_type;
   String? phone;
   String? NIN;
+  int? seats;
+  int? raters;
+  int rides = 0;
   double rating = 0.0;
+  String? requester;
   bool verified = true;
   bool transit = false;
   User();
@@ -24,6 +28,14 @@ class User {
     user.longitude = map['longitude'];
     user.NIN = map['NIN'];
     user.dp = map['dp'];
+    if (map["rides"] != null) {
+      user.rides = map["rides"];
+    }
+    if (map["rating"] != null) {
+      user.rating = map["rating"];
+    }
+    user.raters = map["raters"];
+    user.seats = map["seats"];
     if (map['rating'] != null) {
       user.rating = map['rating'];
     }
@@ -34,6 +46,7 @@ class User {
     if (map['verified'] != null) {
       user.verified = false;
     }
+    user.requester = map["requester"];
     user.email = map['email'];
     user.phone = map['phone'];
     user.password = map['password'];
@@ -51,10 +64,13 @@ class User {
       "dp": dp,
       "driver": driver,
       "name": name,
+      "license": license,
       "verified": verified,
       "email": email,
+      "seats": seats,
       "password": password,
       "phone": phone,
+      "rides": rides,
       "transit": transit,
       "ride_type": ride_type,
       "NIN": NIN,
